@@ -1,5 +1,5 @@
 % Continuations in Haskell
-% Ryan Orendorff (ryan@rdodesigns.com)
+% Ryan Orendorff (ryan@orendorff.io)
 % 12 May, 2015
 
 
