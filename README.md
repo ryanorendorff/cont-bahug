@@ -25,8 +25,3 @@ The code inside the presentation can be run using
     make run
 
 This will require `runhaskell` to be in your path.
-
-
-### Pandoc Filter Script
-
-The pandoc filter script was provided by https://github.com/bpj/bpj-pandoc-scripts/wiki/pandoc-mintedcode_pl

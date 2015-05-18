@@ -15,15 +15,14 @@ FONT=font.ltx
 pdf: ${FILEBASE}.pdf
 ${FILEBASE}.pdf: ${FILEBASE}.lhs ${FILEBASE}.tex Makefile
 	@echo "Making PDF"
-	@sed -i.bak "s/verbatim/haskellcode/g" ${FILEBASE}.tex
-	@rm ${FILEBASE}.tex.bak
-	@xelatex -shell-escape ${FILEBASE}.tex >> /dev/null
+	@xelatex -shell-escape ${FILEBASE}.tex
 
 
 tex: ${FILEBASE}.tex
-${FILEBASE}.tex: ${FILEBASE}.lhs ${MINT} Makefile
+${FILEBASE}.tex: ${FILEBASE}.lhs ${MINT} Makefile mint.hs
 	@echo "Making tex"
-	@pandoc -F ./pandoc-mintedcode.pl -w latex --no-highlight -t beamer -H ${MINT} -H ${FONT} ${LHS} -o ${FILEBASE}.tex
+	@pandoc -F ./fuse-code.hs -F ./mint.hs -w latex --no-highlight -t beamer -H ${MINT} -H ${FONT} ${LHS} | python fragile-frame.py > ${FILEBASE}.tex
+
 
 run:
 	runhaskell main.hs
