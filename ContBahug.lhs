@@ -566,7 +566,6 @@ or `callCC` in Haskell.
 
 > calc :: Double -> Double -> String
 > calc a b = (`runCont` id) $ do
->
 >   --  |-- `eject` is often called `k`; `k` is the same as
 >   --  v   `ans <- return "oops dividing by 0"`
 >   ans <- callCC $ \k -> do
